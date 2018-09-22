@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>Mini car</title>
+		<style>
+			body {  margin: 0; padding: 0; overflow: hidden;  }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<script src="js/three.min.js"></script>
+		<script src="js/OrbitControls.js"></script>
+		<script>
+
+var CarObject = function() {
+
+    THREE.Group.apply(this, arguments);
+
+    this.rotationSpeed = Math.random() * 0.02 + 0.005;
+    this.rotationPosition = Math.random();
+    //this.rotationSpeed = 0;
+    //this.rotationPosition = -1.5;
+
+    var carBody = new THREE.Mesh(
+        new THREE.BoxGeometry( 15, 8, 20 ),
+        new THREE.MeshStandardMaterial( {
+            color: '#f56762',
+            shading: THREE.FlatShading ,
+            metalness: 0,
+            roughness: 0.8,
+            refractionRatio: 0.25
+    } )
+    );
+    carBody.castShadow = true;
+    carBody.receiveShadow = true;
+    this.add(carBody);
+
+    var shapeTopMiddle = new THREE.Mesh(
+        new THREE.BoxGeometry( 14.9, 6, 10 ),
+        new THREE.MeshStandardMaterial( {
+            color: '#f56762',
+            shading: THREE.FlatShading ,
+            metalness: 0,
+            roughness: 0.8,
+            refractionRatio: 0.25
+        } )
+    );
+    shapeTopMiddle.position.y += 6;
+    shapeTopMiddle.castShadow = true;
+    shapeTopMiddle.receiveShadow = true;
+    this.add(shapeTopMiddle);
+
+    var shapeFrontTop = new THREE.Mesh(
+        new THREE.BoxGeometry( 14.8, 7, 7 ),
+        new THREE.MeshStandardMaterial( {
+            color: '#f56762',
+            shading: THREE.FlatShading ,
+            metalness: 0,
+            roughness: 0.8,
+            refractionRatio: 0.25
+
+        } )
+    );
+    shapeFrontTop.position.z += 5.08;
+    shapeFrontTop.position.y += 4.05;
+    shapeFrontTop.rotateX(0.8);
+    shapeFrontTop.castShadow = true;
+    shapeFrontTop.receiveShadow = true;
+    this.add(shapeFrontTop);
+
+
+    var shapeFrontWindow = new THREE.Mesh(
+        new THREE.BoxGeometry( 14, 7, 5.8 ),
+        new THREE.MeshStandardMaterial( {
+            color: '#608AC1',
+            shading: THREE.FlatShading ,
+            metalness: 0,
+            roughness: 0.8,
+            refractionRatio: 0.25
+
+        } )
+    );
+    shapeFrontWindow.position.z += 5.18;
+    shapeFrontWindow.position.y += 4.3;
+    shapeFrontWindow.rotateX(0.8);
+    shapeFrontWindow.castShadow = true;
+    shapeFrontWindow.receiveShadow = true;
+    this.add(shapeFrontWindow);
+
+
+    var shapeSideWindow = new THREE.Mesh(
+        new THREE.BoxGeometry( 15.1, 4, 9 ),
+        new THREE.MeshStandardMaterial( {
+            color: '#608AC1',
+            shading: THREE.FlatShading ,
+            metalness: 0,
+            roughness: 0.8,
+            refractionRatio: 0.25
+
+        } )
+    );
+    shapeSideWindow.position.z += 1.18;
+    shapeSideWindow.position.y += 6;
+    shapeSideWindow.castShadow = true;
+    shapeSideWindow.receiveShadow = true;
+    this.add(shapeSideWindow);
+
+
+
+    var shapeFrontLights = new THREE.Mesh(
+        new THREE.BoxGeometry( 4, 1, 9 ),
+        new THREE.MeshStandardMaterial( {
+            color: '#F20405',
+            shading: THREE.FlatShading ,
+            metalness: 0,
+            roughness: 0.8,
+            refractionRatio: 0.25
+
+        } )
+    );
+    shapeFrontLights.position.z += 6;
+    shapeFrontLights.position.x += 5;
+    shapeFrontLights.position.y += 0;
+    shapeFrontLights.castShadow = true;
+    shapeFrontLights.receiveShadow = true;
+    this.add(shapeFrontLights);
+
+
+    var shapeFrontLights2 = new THREE.Mesh(
+        new THREE.BoxGeometry( 4, 1, 9 ),
+        new THREE.MeshStandardMaterial( {
+            color: '#F20405',
+            shading: THREE.FlatShading ,
+            metalness: 0,
+            roughness: 0.8,
+            refractionRatio: 0.25
+
+        } )
+    );
+    shapeFrontLights2.position.z += 6;
+    shapeFrontLights2.position.x += -5;
+    shapeFrontLights2.position.y += 0;
+    shapeFrontLights2.castShadow = true;
+    shapeFrontLights2.receiveShadow = true;
+    this.add(shapeFrontLights2);
+
+
+
+    var shapeCone = new THREE.Mesh(
+        new THREE.TetrahedronGeometry( 4, 0 ),
+        new THREE.MeshStandardMaterial( {
+            color: '#F20405',
+            shading: THREE.FlatShading ,
+            metalness: 0,
+            roughness: 0.8,
+            refractionRatio: 0.25
+
+        } )
+    );
+    shapeCone.position.z += 0;
+    shapeCone.position.x += 0;
+    shapeCone.position.y += 18;
+    shapeCone.rotateX(1);
+    shapeCone.rotateY(0.7);
+    shapeCone.castShadow = true;
+    shapeCone.receiveShadow = true;
+    this.add(shapeCone);
+
+    var shapeTireFL = new THREE.Mesh(
+        new THREE.TorusGeometry( 2, 1.2, 16, 100 ),
+        new THREE.MeshStandardMaterial( {
+            color: 0x2B2B2B,
+            shading: THREE.FlatShading ,
+            metalness: 0,
+            roughness: 0.8,
+            refractionRatio: 0.25
+
+        } )
+    );
+    shapeTireFL.position.x += 8.5;
+    shapeTireFL.position.y += -3;
+    shapeTireFL.position.z += 5;
+    shapeTireFL.rotateY(1.8); //1.53
+    shapeTireFL.castShadow = true;
+    shapeTireFL.receiveShadow = true;
+    this.add(shapeTireFL);
+
+    var shapeTireRL = new THREE.Mesh(
+        new THREE.TorusGeometry( 2, 1.2, 16, 100 ),
+        new THREE.MeshStandardMaterial( {
+            color: 0x2B2B2B,
+            shading: THREE.FlatShading ,
+            metalness: 0,
+            roughness: 0.8,
+            refractionRatio: 0.25
+
+        } )
+    );
+    shapeTireRL.position.x += 8.5;
+    shapeTireRL.position.y += -3;
+    shapeTireRL.position.z += -5;
+    shapeTireRL.rotateY(1.53);
+    shapeTireRL.castShadow = true;
+    shapeTireRL.receiveShadow = true;
+    this.add(shapeTireRL);
+
+    var shapeTire1 = new THREE.Mesh(
+        new THREE.TorusGeometry( 2, 1.2, 16, 100 ),
+        new THREE.MeshStandardMaterial( {
+            color: 0x2B2B2B,
+            shading: THREE.FlatShading ,
+            metalness: 0,
+            roughness: 0.8,
+            refractionRatio: 0.25
+
+        } )
+    );
+    shapeTire1.position.x += -8;
+    shapeTire1.position.y += -3;
+    shapeTire1.position.z += -5;
+    shapeTire1.rotateY(1.53);
+    shapeTire1.castShadow = true;
+    shapeTire1.receiveShadow = true;
+    this.add(shapeTire1);
+
+    var shapeTire2 = new THREE.Mesh(
+        new THREE.TorusGeometry( 2, 1.2, 16, 100 ),
+        new THREE.MeshStandardMaterial( {
+            color: 0x2B2B2B,
+            shading: THREE.FlatShading ,
+            metalness: 0,
+            roughness: 0.8,
+            refractionRatio: 0.25
+
+        } )
+    );
+    shapeTire2.position.x += -8;
+    shapeTire2.position.y += -3;
+    shapeTire2.position.z += 5;
+    shapeTire2.rotateY(1.53);
+    shapeTire2.castShadow = true;
+    shapeTire2.receiveShadow = true;
+    this.add(shapeTire2);
+};
+CarObject.prototype = Object.create(THREE.Group.prototype);
+CarObject.prototype.constructor = CarObject;
+CarObject.prototype.updatePosition = function() {
+    this.rotationPosition += this.rotationSpeed;
+    this.rotation.y = (Math.sin(this.rotationPosition));
+};
+
+// Create a scene which will hold all our meshes to be rendered
+var scene = new THREE.Scene();
+
+// Create and position a camera
+var camera = new THREE.PerspectiveCamera(
+    60,                                   // Field of view
+    window.innerWidth/window.innerHeight, // Aspect ratio
+    0.1,                                  // Near clipping pane
+    1000                                  // Far clipping pane
+);
+
+// Reposition the camera
+camera.position.set(0,30,50);
+
+// Point the camera at a given coordinate
+camera.lookAt(new THREE.Vector3(0,15,0))
+
+// Create a renderer
+var renderer = new THREE.WebGLRenderer({ antialias: true });
+
+// Size should be the same as the window
+renderer.setSize( window.innerWidth, window.innerHeight );
+
+// Set a near white clear color (default is black)
+renderer.setClearColor( 0xfff6e6 );
+
+// Enable shadow mapping
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+// Append to the document
+document.body.appendChild( renderer.domElement );
+
+// Add an ambient lights
+var ambientLight = new THREE.AmbientLight( 0xffffff, 0.3 );
+scene.add( ambientLight );
+
+// Add a point light that will cast shadows
+var pointLight = new THREE.PointLight( 0xffffff, 1 );
+pointLight.position.set( 25, 50, 25 );
+pointLight.castShadow = true;
+pointLight.shadow.mapSize.width = 1024;
+pointLight.shadow.mapSize.height = 1024;
+scene.add( pointLight );
+
+// A basic material that shows the ground
+var shadowMaterial = new THREE.ShadowMaterial( { color: 0xeeeeee } );
+shadowMaterial.opacity = 0.5;
+var groundMesh = new THREE.Mesh(
+    new THREE.BoxGeometry( 100, .1, 100 ),
+    shadowMaterial
+);
+groundMesh.receiveShadow = true;
+scene.add( groundMesh );
+
+var everyObject = [];
+
+var truck1 = new CarObject();
+truck1.position.y += 10;
+scene.add(truck1);
+everyObject.push(truck1);
+
+renderer.render(scene, camera);
+
+var controls = new THREE.OrbitControls( camera, renderer.domElement );
+controls.target = new THREE.Vector3(0,15,0);
+controls.maxPolarAngle = Math.PI / 2;
+
+requestAnimationFrame(render);
+function render() {
+    controls.update();
+    for(var d = 0; d < everyObject.length; d++) {
+        everyObject[d].updatePosition();
+    }
+    renderer.render(scene, camera);
+    requestAnimationFrame(render);
+}
+
+		</script>
+	</body>
+</html>
