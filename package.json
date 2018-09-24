@@ -1,12 +1,12 @@
 {
-  "name": "threejs",
+  "name": "Mini Car",
   "version": "1.0.0",
-  "description": "",
+  "description": "my first three.js project.",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "James Jongho Kim",
   "license": "ISC",
   "dependencies": {
     "live-server": "^1.2.0",
