@@ -9,7 +9,6 @@
   "author": "James Jongho Kim",
   "license": "ISC",
   "dependencies": {
-    "live-server": "^1.2.0",
-    "three": "^0.96.0"
+    "live-server": "^1.2.0"
   }
 }
