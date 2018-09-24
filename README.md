@@ -2,7 +2,7 @@
 
 Hi. I'm James Jongho Kim. I made a 3d model which is a truck. It's not complete yet. I'm making a wing to attach to the truck. So it will end up looking like a flying truck which I have imagine only in my head.
 
-![](sample.png)
+![](minicar.jpg)
 
 ## Getting Started
 
