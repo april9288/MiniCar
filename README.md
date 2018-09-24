@@ -24,6 +24,6 @@ Two files are really essential here.
 ## Meta
 
 James Jongho Kim 
-- [Github](https://github.com/april9288) 
-- [LinkedIn](https://www.linkedin.com/in/jongho-kim-b05618170/)
+- [Github](https://github.com/april9288) - This is my Github page
+- [LinkedIn](https://www.linkedin.com/in/jongho-kim-b05618170/) - This is my Linkedin page
 - april9288@gmail.com
