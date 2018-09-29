@@ -366,7 +366,7 @@ let CarObject = function() {
     let loader = new THREE.TextureLoader();
     let groundTexture = loader.load( 'road.jpg' );
     groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping;
-    groundTexture.repeat.set( 1, 1 );
+    groundTexture.repeat.set( 1, 20 );
     groundTexture.anisotropy = 16;
 
     let groundMaterial = new THREE.MeshLambertMaterial( { map: groundTexture } );
