@@ -1,6 +1,6 @@
 # Mini Car
 
-It's a 3d truck-like model built with Three.js library. Three.js is a Javascript library for rendering 3d models in web browsers. This project is not complete yet. I'm now working hard on making a wing to attach to the truck. So it will end up looking like a flying truck which I have imagined only in my head.
+It's a 3d truck-like model built with Three.js library. Three.js is a Javascript library for rendering 3d models in web browsers. 
 
 * [minicar](https://april9288.github.io/MiniCar/) - You can play around with the model here. It's moving!
 

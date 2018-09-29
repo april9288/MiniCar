@@ -13,16 +13,16 @@
 		<script src="js/OrbitControls.js"></script>
 		<script>
 
-var CarObject = function() {
+let CarObject = function() {
 
     THREE.Group.apply(this, arguments);
 
-    this.rotationSpeed = Math.random() * 0.02 + 0.005;
+    this.rotationSpeed = Math.random() * 0.0002 + 0.005;
     this.rotationPosition = Math.random();
     //this.rotationSpeed = 0;
     //this.rotationPosition = -1.5;
 
-    var carBody = new THREE.Mesh(
+    let carBody = new THREE.Mesh(
         new THREE.BoxGeometry( 15, 8, 20 ),
         new THREE.MeshStandardMaterial( {
             color: '#f56762',
@@ -36,7 +36,7 @@ var CarObject = function() {
     carBody.receiveShadow = true;
     this.add(carBody);
 
-    var shapeTopMiddle = new THREE.Mesh(
+    let shapeTopMiddle = new THREE.Mesh(
         new THREE.BoxGeometry( 14.9, 6, 10 ),
         new THREE.MeshStandardMaterial( {
             color: '#f56762',
@@ -51,7 +51,7 @@ var CarObject = function() {
     shapeTopMiddle.receiveShadow = true;
     this.add(shapeTopMiddle);
 
-    var shapeFrontTop = new THREE.Mesh(
+    let shapeFrontTop = new THREE.Mesh(
         new THREE.BoxGeometry( 14.8, 7, 7 ),
         new THREE.MeshStandardMaterial( {
             color: '#f56762',
@@ -70,7 +70,7 @@ var CarObject = function() {
     this.add(shapeFrontTop);
 
 
-    var shapeFrontWindow = new THREE.Mesh(
+    let shapeFrontWindow = new THREE.Mesh(
         new THREE.BoxGeometry( 14, 7, 5.8 ),
         new THREE.MeshStandardMaterial( {
             color: '#608AC1',
@@ -89,7 +89,7 @@ var CarObject = function() {
     this.add(shapeFrontWindow);
 
 
-    var shapeSideWindow = new THREE.Mesh(
+    let shapeSideWindow = new THREE.Mesh(
         new THREE.BoxGeometry( 15.1, 4, 9 ),
         new THREE.MeshStandardMaterial( {
             color: '#608AC1',
@@ -108,7 +108,7 @@ var CarObject = function() {
 
 
 
-    var shapeFrontLights = new THREE.Mesh(
+    let shapeFrontLights = new THREE.Mesh(
         new THREE.BoxGeometry( 4, 1, 9 ),
         new THREE.MeshStandardMaterial( {
             color: '#F20405',
@@ -127,7 +127,7 @@ var CarObject = function() {
     this.add(shapeFrontLights);
 
 
-    var shapeFrontLights2 = new THREE.Mesh(
+    let shapeFrontLights2 = new THREE.Mesh(
         new THREE.BoxGeometry( 4, 1, 9 ),
         new THREE.MeshStandardMaterial( {
             color: '#F20405',
@@ -147,7 +147,7 @@ var CarObject = function() {
 
 
 
-    var shapeCone = new THREE.Mesh(
+    let shapeCone = new THREE.Mesh(
         new THREE.TetrahedronGeometry( 4, 0 ),
         new THREE.MeshStandardMaterial( {
             color: '#F20405',
@@ -167,7 +167,7 @@ var CarObject = function() {
     shapeCone.receiveShadow = true;
     this.add(shapeCone);
 
-    var shapeTireFL = new THREE.Mesh(
+    let shapeTireFL = new THREE.Mesh(
         new THREE.TorusGeometry( 2, 1.2, 16, 100 ),
         new THREE.MeshStandardMaterial( {
             color: 0x2B2B2B,
@@ -186,7 +186,7 @@ var CarObject = function() {
     shapeTireFL.receiveShadow = true;
     this.add(shapeTireFL);
 
-    var shapeTireRL = new THREE.Mesh(
+    let shapeTireRL = new THREE.Mesh(
         new THREE.TorusGeometry( 2, 1.2, 16, 100 ),
         new THREE.MeshStandardMaterial( {
             color: 0x2B2B2B,
@@ -205,7 +205,7 @@ var CarObject = function() {
     shapeTireRL.receiveShadow = true;
     this.add(shapeTireRL);
 
-    var shapeTire1 = new THREE.Mesh(
+    let shapeTire1 = new THREE.Mesh(
         new THREE.TorusGeometry( 2, 1.2, 16, 100 ),
         new THREE.MeshStandardMaterial( {
             color: 0x2B2B2B,
@@ -224,7 +224,7 @@ var CarObject = function() {
     shapeTire1.receiveShadow = true;
     this.add(shapeTire1);
 
-    var shapeTire2 = new THREE.Mesh(
+    let shapeTire2 = new THREE.Mesh(
         new THREE.TorusGeometry( 2, 1.2, 16, 100 ),
         new THREE.MeshStandardMaterial( {
             color: 0x2B2B2B,
@@ -242,6 +242,143 @@ var CarObject = function() {
     shapeTire2.castShadow = true;
     shapeTire2.receiveShadow = true;
     this.add(shapeTire2);
+
+
+
+    
+    let wing1 = new THREE.Mesh(
+        new THREE.BoxGeometry( 7, 2, 10 ),
+        new THREE.MeshStandardMaterial( {
+            color: 'pink',
+            shading: THREE.FlatShading ,
+            metalness: 0,
+            roughness: 0.8,
+            refractionRatio: 0.25
+    } )
+    );
+    wing1.position.x += 8;
+    wing1.position.y += 2;
+    wing1.position.z -= 4;
+    wing1.castShadow = true;
+    wing1.receiveShadow = true;
+    this.add(wing1);
+
+    let wing2 = new THREE.Mesh(
+        new THREE.BoxGeometry( 2, 1.5, 7 ),
+        new THREE.MeshStandardMaterial( {
+            color: 'pink',
+            shading: THREE.FlatShading ,
+            metalness: 0,
+            roughness: 0.8,
+            refractionRatio: 0.25
+    } )
+    );
+    wing2.position.x += 12;
+    wing2.position.y += 2;
+    wing2.position.z -= 5;
+    wing2.castShadow = true;
+    wing2.receiveShadow = true;
+    this.add(wing2);
+
+
+    let wing3 = new THREE.Mesh(
+        new THREE.BoxGeometry( 7, 2, 10 ),
+        new THREE.MeshStandardMaterial( {
+            color: 'pink',
+            shading: THREE.FlatShading ,
+            metalness: 0,
+            roughness: 0.8,
+            refractionRatio: 0.25
+    } )
+    );
+    wing3.position.x -= 8;
+    wing3.position.y += 2;
+    wing3.position.z -= 4;
+    wing3.castShadow = true;
+    wing3.receiveShadow = true;
+    this.add(wing3);
+
+    let wing4 = new THREE.Mesh(
+        new THREE.BoxGeometry( 2, 1.5, 7 ),
+        new THREE.MeshStandardMaterial( {
+            color: 'pink',
+            shading: THREE.FlatShading ,
+            metalness: 0,
+            roughness: 0.8,
+            refractionRatio: 0.25
+    } )
+    );
+    wing4.position.x -= 12;
+    wing4.position.y += 2;
+    wing4.position.z -= 5;
+    wing4.castShadow = true;
+    wing4.receiveShadow = true;
+    this.add(wing4);
+
+    let verticesOfCube = [
+        -1,-1,-1,    1,-1,-1,    1, 1,-1,    -1, 1,-1,
+        -1,-1, 1,    1,-1, 1,    1, 1, 1,    -1, 1, 1,
+    ];
+
+    let indicesOfFaces = [
+        2,1,0,    0,3,2,
+        0,4,7,    7,3,0,
+        0,1,5,    5,4,0,
+        1,2,6,    6,5,1,
+        2,3,7,    7,6,2,
+        4,5,6,    6,7,4
+    ];
+
+    let treetop = new THREE.Mesh(
+        new THREE.PolyhedronBufferGeometry( verticesOfCube, indicesOfFaces, 6, 2 ),
+        new THREE.MeshStandardMaterial( {
+            color: 'green',
+            shading: THREE.FlatShading ,
+            metalness: 0,
+            roughness: 0.8,
+            refractionRatio: 0.25
+    } )
+    );
+    treetop.position.x -= 30;
+    treetop.position.y += 15;
+    treetop.position.z -= 0;
+    treetop.castShadow = true;
+    treetop.receiveShadow = true;
+    this.add(treetop);
+
+    let treebottom = new THREE.Mesh(
+        new THREE.CylinderGeometry( 2, 3, 20, 32 ),
+        new THREE.MeshStandardMaterial( {
+            color: 'brown',
+            shading: THREE.FlatShading ,
+            metalness: 0,
+            roughness: 0.8,
+            refractionRatio: 0.25
+    } )
+    );
+    treebottom.position.x -= 30;
+    treebottom.position.y += 4;
+    treebottom.position.z -= 0;
+    treebottom.castShadow = true;
+    treebottom.receiveShadow = true;
+    this.add(treebottom);
+
+    let loader = new THREE.TextureLoader();
+    let groundTexture = loader.load( 'road.jpg' );
+    groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping;
+    groundTexture.repeat.set( 1, 1 );
+    groundTexture.anisotropy = 16;
+
+    let groundMaterial = new THREE.MeshLambertMaterial( { map: groundTexture } );
+    let mesh = new THREE.Mesh( new THREE.PlaneBufferGeometry( 100, 2000 ), groundMaterial );
+    mesh.position.y = -7;
+    mesh.position.x += 30;
+    mesh.rotation.x = - Math.PI / 2;
+    mesh.receiveShadow = true;
+    this.add( mesh );
+
+
+
 };
 CarObject.prototype = Object.create(THREE.Group.prototype);
 CarObject.prototype.constructor = CarObject;
@@ -251,10 +388,10 @@ CarObject.prototype.updatePosition = function() {
 };
 
 // Create a scene which will hold all our meshes to be rendered
-var scene = new THREE.Scene();
+let scene = new THREE.Scene();
 
 // Create and position a camera
-var camera = new THREE.PerspectiveCamera(
+let camera = new THREE.PerspectiveCamera(
     60,                                   // Field of view
     window.innerWidth/window.innerHeight, // Aspect ratio
     0.1,                                  // Near clipping pane
@@ -268,13 +405,20 @@ camera.position.set(0,30,50);
 camera.lookAt(new THREE.Vector3(0,15,0))
 
 // Create a renderer
-var renderer = new THREE.WebGLRenderer({ antialias: true });
+let renderer = new THREE.WebGLRenderer({ antialias: true });
 
 // Size should be the same as the window
 renderer.setSize( window.innerWidth, window.innerHeight );
 
 // Set a near white clear color (default is black)
-renderer.setClearColor( 0xfff6e6 );
+renderer.setClearColor( 0x87ceeb );
+
+
+
+
+
+
+
 
 // Enable shadow mapping
 renderer.shadowMap.enabled = true;
@@ -284,11 +428,11 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 document.body.appendChild( renderer.domElement );
 
 // Add an ambient lights
-var ambientLight = new THREE.AmbientLight( 0xffffff, 0.3 );
+let ambientLight = new THREE.AmbientLight( 0xffffff, 0.3 );
 scene.add( ambientLight );
 
 // Add a point light that will cast shadows
-var pointLight = new THREE.PointLight( 0xffffff, 1 );
+let pointLight = new THREE.PointLight( 0xffffff, 1 );
 pointLight.position.set( 25, 50, 25 );
 pointLight.castShadow = true;
 pointLight.shadow.mapSize.width = 1024;
@@ -296,32 +440,32 @@ pointLight.shadow.mapSize.height = 1024;
 scene.add( pointLight );
 
 // A basic material that shows the ground
-var shadowMaterial = new THREE.ShadowMaterial( { color: 0xeeeeee } );
-shadowMaterial.opacity = 0.5;
-var groundMesh = new THREE.Mesh(
-    new THREE.BoxGeometry( 100, .1, 100 ),
+let shadowMaterial = new THREE.ShadowMaterial( { color: 0xeeeeee } );
+shadowMaterial.opacity = 0.05;
+let groundMesh = new THREE.Mesh(
+    new THREE.BoxGeometry( 1000, .1, 1000 ),
     shadowMaterial
 );
 groundMesh.receiveShadow = true;
 scene.add( groundMesh );
 
-var everyObject = [];
+let everyObject = [];
 
-var truck1 = new CarObject();
-truck1.position.y += 10;
+let truck1 = new CarObject();
+truck1.position.y += 6;
 scene.add(truck1);
 everyObject.push(truck1);
 
 renderer.render(scene, camera);
 
-var controls = new THREE.OrbitControls( camera, renderer.domElement );
+let controls = new THREE.OrbitControls( camera, renderer.domElement );
 controls.target = new THREE.Vector3(0,15,0);
 controls.maxPolarAngle = Math.PI / 2;
 
 requestAnimationFrame(render);
 function render() {
     controls.update();
-    for(var d = 0; d < everyObject.length; d++) {
+    for(let d = 0; d < everyObject.length; d++) {
         everyObject[d].updatePosition();
     }
     renderer.render(scene, camera);
