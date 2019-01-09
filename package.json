@@ -1,5 +1,5 @@
 {
-  "name": "Mini Car",
+  "name": "mini_car",
   "version": "1.0.0",
   "description": "my first three.js project.",
   "main": "index.html",
@@ -8,7 +8,7 @@
   },
   "author": "James Jongho Kim",
   "license": "ISC",
-  "dependencies": {
-    "live-server": "^1.2.0"
+  "devDependencies": {
+    "live-server": "^1.2.1"
   }
 }
